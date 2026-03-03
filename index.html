@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARI PORTFOLIO WEBSITE</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+
+        nav {
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            gap: 17px;
+            background-image: linear-gradient(to right, #a85cf9, rgb(255, 126, 219), #470782, #4d0b86);
+        }
+
+        .logo {
+            font-family: Dancing Script, cursive;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 17px;
+        }
+
+        nav ul li {
+            color: rgb(252, 247, 247);
+            list-style-type: none;
+        }
+
+        .hero {
+
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: linear-gradient(to right, #e9a0fb, #f8c7ef);
+
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            color: rgb(175, 107, 224);
+            font-family: Dancing Script;
+
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .heroleft .one {
+            font-size: 45px;
+            font-weight: bold;
+
+        }
+
+        .heroleft .two {
+            font-size: 35px;
+            font-weight: bold
+        }
+
+
+
+
+        .heroright img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            box-shadow: 10px 10px rgba(88, 0, 82, 0.08);
+            object-fit: cover;
+
+
+        }
+
+        .btn {
+            background-image: linear-gradient(to right, #d59aef, #f38bc9);
+
+            padding: 10px 10px;
+            border: 1px solid rgb(236, 227, 236);
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            font-family: Dancing Script, cursive;
+            margin: 20px;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background-position 0.4s ease;
+            background-size: 200%;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            background-position: right;
+            background-color: #a60867;
+        }
+
+
+
+
+
+
+        .about-cards {
+            min-height: 45vh;
+            padding: 0px 0px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            align-items: center;
+            width: 100%;
+
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+            :hover {
+                transform: translateY(-12px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+
+            }
+        }
+
+        .card {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px;
+            width: 300px;
+            height: 250px;
+            border-radius: 20px;
+            box-shadow: 10px 10px rgba(88, 0, 82, 0.08);
+            text-align: center;
+            font-family: Dancing Script;
+        }
+
+        .card h3 {
+
+            color: #6b4b4b;
+        }
+
+        .card p {
+            color: #7a6a6a;
+            line-height: 1.4;
+            font-size: 16px;
+            margin-bottom: 70px;
+            font-family: Barlow Condensed, serif;
+        }
+
+        .about-title {
+            margin-top: 50px;
+
+        }
+
+        .about-me {
+            background-image: linear-gradient(to right, #e9a0fb, #f8c7ef);
+            min-height: 55vh;
+            padding: 10px 0px;
+            border-top: #e173ed solid;
+            background-color: rgb(240, 223, 240);
+            display: grid;
+            justify-content: center;
+            gap: 30px;
+
+        }
+
+        .about-title {
+
+            text-align: center;
+            font-size: 50px;
+            font-family: Dancing Script, cursive;
+            margin-bottom: 60px;
+            color: #95469e;
+            font-weight: bold;
+        }
+
+        .skills {
+            background-image: linear-gradient(to right, #e9a0fb, #f8c7ef);
+            max-height: 75vh;
+            padding: 50px 0px;
+            border: #ec81f7 solid;
+            background-color: rgb(197, 128, 197);
+            display: grid;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .word {
+            max-width: 600px;
+            font-family: Cormorant Garamond, serif;
+            font-size: 20px;
+            margin-bottom: 200px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            color: #95469e;
+
+        }
+
+        .butt {
+
+            background-color: #e9a0fb;
+
+            padding: 7px 6px;
+            margin-right: 25px;
+            border: 1px #fdf9fb;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 25px;
+            color: #95469e;
+            box-shadow: 3px 3px 3px 3px rgb(193, 119, 210);
+            ;
+            font-family: Dancing Script, cursive;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background-position 0.4s ease;
+            margin-top: 40px;
+            margin-bottom: 100px;
+
+        }
+
+        .butt:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            background-position: right;
+            background-color: #f195cc;
+            color: #f3f1f1;
+        }
+
+
+
+
+        .contact-section {
+            max-height: 100vh;
+            background-image: linear-gradient(to right, #e9a0fb, #f8c7ef);
+            min-height: 55vh;
+            padding: 80px 10%;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 50px;
+            font-family: Dancing Script, cursive;
+
+            color: #95469e;
+            font-weight: bold;
+        }
+
+        .underline {
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #95469e;
+            margin: 12px auto 40px;
+            border-radius: 10px;
+        }
+
+        /* Layout */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        /* Left */
+        .contact-info {
+            text-align: left;
+            color: #95469e;
+            font-family: 'Dancing Script', cursive;
+            font-size: 22px;
+        }
+
+        .contact-info .subtitle {
+            margin-bottom: 20px;
+            color: #95469e;
+        }
+
+        /* Form */
+        .contact-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 25px;
+        }
+
+        .contact-form .row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 18px;
+            border: 1px solid #dba0e5;
+            background: #fffafa;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(to right, #f7c1d9, #e7d6f2);
+            color: #95469e;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer Card */
+        .footer-card {
+            max-width: 420px;
+            margin: auto;
+            padding: 25px;
+            background: linear-gradient(to right, #ecd9f5, #f8d6dc);
+            border-radius: 20px;
+            color: #d186a4;
+            font-size: 14px;
+        }
+
+        .footer-card .socials {
+            margin-top: 12px;
+        }
+
+        .footer-card .socials span {
+            display: inline-block;
+            margin: 0 6px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1024px) {
+
+            /* About cards stack */
+            .about-cards {
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+            }
+
+            .card {
+                width: 90%;
+                height: auto;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            @media screen and (max-width:985px) {
+                nav {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .hero {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 12px;
+                }
+
+                .heroright img {
+                    width: 250px;
+                    height: 250px;
+                    align-items: center;
+                }
+
+                .heroleft .one,
+                .heroleft .two {
+                    align-items: center;
+
+
+                }
+
+                .hero-bg {
+                    position: absolute;
+                    inset: 0;
+                    height: 800px;
+                    width: 800px;
+                    object-fit: cover;
+
+
+                }
+
+            }
+    </style>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Birthstone&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+    (function () {
+        emailjs.init("sKTxvOAkodRxJXkYc");
+    })();
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+
+        if (!form) {
+            console.error("Form not found");
+            return;
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            emailjs
+                .sendForm(
+                    "service_dyalmqc",
+                    "template_ncaxlmg",
+                    this
+                )
+                .then(
+                    function () {
+                        alert("Message sent ✅");
+                        form.reset();
+                    },
+                    function (error) {
+                        console.error("EmailJS failed:", error);
+                        alert("Failed ❌ Check console");
+                    }
+                );
+        });
+    });
+</script>
+
+<body>
+    <nav>
+        <div class="logo">
+            Pari's Portfolio
+        </div>
+        <ul>
+            <a href="index.html">
+                <li>Home</li>
+            </a>
+            <a href="index.html#about-me">
+                <li>About</li><a href=""></a>
+                <a href="index.html#skills">
+                    <li>Services</li>
+                </a>
+                <a href="index.html#contact-form">
+                    <li>Contact</li>
+                </a>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <div><img src="canva.png" alt="" class="hero-bg"></div>
+            <div class="heroleft">
+                <div class="one"> Hey! Its Pari</div>
+                <div class="two"> I am a Graphic Designer </div>
+                <a href="#skills"><button class="btn" aria-placeholder="bt">My Creations</button></a>
+            </div>
+
+            <div class="heroright"><img src="proo.png" alt=""></div>
+
+
+
+
+        </section>
+
+        <section class="about-me" id="about-me">
+            <h2 class="about-title">About Me</h2>
+
+            <div class="about-cards">
+                <div class="card">
+                    <h3>🌻 Who I Am</h3>
+                    <p>Creating with warmth and intention, I’m drawn to soft visuals and simple forms where small
+                        details make the biggest impact.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 What I Love</h3>
+                    <p>Designing with softness and balance,
+                        blending pastel tones and cozy hues.
+                        Guided by nature’s calm presence
+                        and gentle visual storytelling.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🪄Crafted Visions</h3>
+                    <p>Nurturing ideas with patience and care,
+                        shaping them with quiet thoughtfulness.
+                        Guided by subtle energy and intention,
+                        bringing visions to life . </p>
+                </div>
+            </div>
+        </section>
+        <section class=" skills" id="skills">
+            <h2 class="about-title">My Work</h2>
+
+            <div class="word">
+                <h3>Posters, flyers, and social media creatives with a soft, modern aesthetic.
+                    Built around color harmony, typography, and visual flow.
+                    Designed to capture attention while staying clean and minimal.
+                </h3>
+                <div><a href="poster.html"><button class="butt">Poster Design</button></a>
+                    <a href="flyer.html"><button class="butt">Flyer Design</button></a>
+                    <a href="social.html"><button class="butt">Social Media Designs</button>
+                </div></a>
+
+            </div>
+        </section>
+
+
+
+        <section class="contact-section" id="contact">
+            <h2>Contact Me</h2>
+            <span class="underline"></span>
+
+            <div class="contact-wrapper">
+                <!-- LEFT -->
+                <div class="contact-info">
+                    <p class="subtitle">Drop a message to brighten my day ✨</p>
+
+                    <p><strong>Email:</strong> pariphor78@gmail.com</p>
+                    <a href="https://instagram.com/yourusername" target="_blank"><button class="btn">Instagram </button>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <div></div>
+
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><button class="btn">Linkedin
+                        </button>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+
+                <!-- RIGHT -->
+                <form class="contact-form" id="contact-form">
+                    <div class="row">
+                        <input type="text" placeholder=" Name" name="Name" />
+                        <input type="email" placeholder=" Email" name="Email" />
+                    </div>
+
+                    <textarea placeholder="Message" name="Message"></textarea>
+
+                    <button type="submit">Send A Message</button>
+                </form>
+            </div>
+
+            <!-- FOOTER CARD -->
+            <div class="footer-card">
+                🌸Made by Pari | © 2026
+                <div class="socials">
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
